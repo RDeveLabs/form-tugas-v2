@@ -13,7 +13,7 @@
             <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
         </div>
         <div class="bg-(--background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
-            <div class="flex flex-col gap-1 w-90">
+            <div class="flex flex-col gap-1 w-100">
                 <div class="flex flex-col">
                     <label for="nama" class="text-lg">Nama</label>
                     <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
@@ -45,19 +45,26 @@
                 </div>
                 <div class="flex flex-col">
                     <label class="text-lg" for="pertemuan">Pertemuan</label>
-                    <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
-                        <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
-                        <option value="pertemuan-1-7">Pertemuan 1 sampai 7</option>
-                        <option value="pertemuan-9-15">Pertemuan 9 sampai 15</option>
-                    </select>
+                    <div class="flex justify-between gap-2">
+                        <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
+                            <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
+                            <option value="pertemuan-1-7">Pertemuan 1 sampai 7</option>
+                            <option value="pertemuan-9-15">Pertemuan 9 sampai 15</option>
+                        </select>
+                        <button class="pertemuan-button bg-amber-200 w-full text-lg rounded-sm">Pilih</button>
+                    </div>
                 </div>
             </div>
             <div class="bg-black w-2 rounded-4xl"></div>
             <div class="flex flex-col gap-3 justify-between">
-                <div class="bg-amber-950 w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
-                    <div class="bg-amber-200 w-full p-4 text-lg font-semibold cursor-pointer">Upload tugas pertemuan 1</div>
+                <div class="container-tugas bg-amber-950 w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
+                    <span class="text-white text-center">pertemuan belum dipilih</span>
+                    <!-- <label class="bg-amber-200 w-full p-4 text-lg font-semibold cursor-pointer">
+                        Upload tugas pertemuan 1
+                        <input type="file" name="file" id="file">
+                    </label> -->
                 </div>
-                <button class="bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer" >Merge / Gabungkan semua file</button>
+                <button class="submit-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer" >Merge / Gabungkan semua file</button>
             </div>
         </div>
     </div>
@@ -65,5 +72,6 @@
 
     <script type="module" src="/public/animasi.js"></script>
     <script type="module" src="/public/font-awesome.mjs"></script>
+    <script type="module" src="/public/index.js"></script>
 </body>
 </html>

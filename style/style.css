@@ -71,6 +71,23 @@
     font-display: swap;
 }
 
-@theme{
+:root{
+    --background: #ff7640;
+}
+@theme inline{
     --default-font-family: 'Poppins'
+}
+
+.header::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: -20px;
+    background: radial-gradient(
+    circle at top right,
+    transparent 20px,
+    var(--background) 20px
+    );
 }

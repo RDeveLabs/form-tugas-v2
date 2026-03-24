@@ -1,5 +1,6 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
+export {PDFDocument}
 
 export async function buatHalamanCover(pertemuan, nama, nim, kelas, dosen, matkul) {
   const pdfDoc = await PDFDocument.create()

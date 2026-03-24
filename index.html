@@ -13,8 +13,8 @@
             <h1 class="font-bold text-[47px] leading-11">Form Pengumpulan Tugas</h1>
             <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
         </div>
-        <div class="bg-(--background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
-            <div class="flex flex-col gap-1 w-100">
+        <div class="body-form bg-(--background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
+            <div class="input-container flex flex-col gap-1 w-100">
                 <div class="flex flex-col">
                     <label for="nama" class="text-lg">Nama</label>
                     <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
@@ -56,26 +56,41 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-black w-2 rounded-4xl"></div>
-            <div class="flex flex-col gap-3 justify-between">
+            <div class="divider bg-black w-2 rounded-4xl"></div>
+            <div class="body-file flex flex-col gap-3 justify-between">
                 <div class="container-tugas bg-amber-950 w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
-                    <span class="text-white text-center">pertemuan belum dipilih</span>
+                    <span class="text-white text-center">Untuk mengupload file, pilih dulu pertemuannya</span>
                     <!-- <label class="bg-amber-200 w-full p-4 text-lg font-semibold cursor-pointer">
                         Upload tugas pertemuan 1
                         <input type="file" name="file" id="file">
                     </label> -->
                 </div>
-                <button class="merge-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer" >Merge / Gabungkan semua file</button>
+                <button class="merge-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Merge / Gabungkan semua file</button>
+            </div>
+        </div>
+    </div>
+    <div class="body-preview absolute justify-center items-center h-full w-full z-5">
+        <div class="background-card absolute bg-black h-full w-full"></div>
+        <div class="preview-card absolute flex flex-col justify-between z-10 bg-amber-50 w-200 h-205 rounded-lg">
+            <div class="border-b-2">
+                <h1 class="text-md p-2"><strong class="text-2xl">Preview Hasil</strong> scroll kebawah atau download preview untuk detail lebih lanjut.</h1>
+            </div>
+            <div id="pdf-container" class="flex flex-col items-center overflow-scroll">
+                <div id="loading">Memuat PDF...</div>
+            </div>
+            <div class="button-preview flex justify-between gap-2 p-2 bg-amber-100">
+                <button id="back-button" class="p-4 bg-amber-200 w-full cursor-pointer">Kembali</button>
+                <button id="download-preview" class="p-4 bg-amber-200 w-full cursor-pointer">Download Preview</button>
+                <button id="upload-button" class="p-4 bg-amber-200 w-full cursor-pointer">Compress & Upload</button>
             </div>
         </div>
     </div>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
-    <script type="module" src="/public/notif.js"></script>
-    <script type="module" src="/public/animasi.js"></script>
-    <script type="module" src="/public/font-awesome.mjs"></script>
-    <script type="module" src="/public/main.js"></script>
+    <script type="module" src="/src/notif.js"></script>
+    <script type="module" src="/src/animasi.js"></script>
+    <script type="module" src="/src/font-awesome.mjs"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

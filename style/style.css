@@ -78,6 +78,10 @@
     --default-font-family: 'Poppins'
 }
 
+canvas{
+    background: transparent;
+}
+
 .header::after{
     content: "";
     position: absolute;
@@ -90,4 +94,8 @@
     transparent 20px,
     var(--background) 20px
     );
+}
+
+.body-preview{
+    display: none;
 }

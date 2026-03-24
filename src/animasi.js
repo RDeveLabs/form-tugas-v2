@@ -58,3 +58,37 @@ animate("div input, select, .pertemuan-button", {
   ease: spring(),
   delay: stagger(100),
 });
+
+document.addEventListener("eventOpenBodyPreview", () => {
+  animate(".background-card", {
+    opacity: [0, 0.8],
+    duration: 500,
+    ease: "inOut",
+  });
+
+  animate(".preview-card", {
+    translateY: [1000, 0],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [0, 1],
+  });
+});
+
+document.addEventListener("eventCloseBodyPreview", () => {
+  animate(".background-card", {
+    opacity: [0.8, 0],
+    duration: 500,
+    ease: "inOut",
+  });
+
+  animate(".preview-card", {
+    translateY: [0, -1000],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [1, 0],
+  });
+  setTimeout(() => {
+    const bodyPreview = document.querySelector(".body-preview");
+    bodyPreview.style.display = "none";
+  }, 800);
+});

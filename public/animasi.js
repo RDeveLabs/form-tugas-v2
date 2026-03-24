@@ -1,5 +1,5 @@
 import { animate, spring, stagger, splitText } from "animejs";
-import { getRange } from ".";
+import { getRange } from "./main";
 
 document.querySelector(".pertemuan-button").addEventListener("click", () => {
   const { start, end } = getRange();

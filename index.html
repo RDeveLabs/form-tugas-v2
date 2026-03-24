@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">
     <link rel="stylesheet" href="/style/style.css">
     <title>Form Tugas</title>
 </head>
@@ -64,14 +65,17 @@
                         <input type="file" name="file" id="file">
                     </label> -->
                 </div>
-                <button class="submit-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer" >Merge / Gabungkan semua file</button>
+                <button class="merge-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer" >Merge / Gabungkan semua file</button>
             </div>
         </div>
     </div>
 
 
+
+    <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+    <script type="module" src="/public/notif.js"></script>
     <script type="module" src="/public/animasi.js"></script>
     <script type="module" src="/public/font-awesome.mjs"></script>
-    <script type="module" src="/public/index.js"></script>
+    <script type="module" src="/public/main.js"></script>
 </body>
 </html>

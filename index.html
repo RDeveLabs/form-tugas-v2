@@ -7,65 +7,65 @@
     <link rel="stylesheet" href="/style/style.css">
     <title>Form Tugas</title>
 </head>
-<body class="bg-amber-400 flex items-center justify-center h-screen w-screen">
+<body class="bg-(--background) flex items-center justify-center h-screen w-screen">
     <div class="flex flex-col">
-        <div class="header relative bg-(--background) p-4 w-max rounded-tl-xl rounded-tr-xl">
-            <h1 class="font-bold text-[47px] leading-11">Form Pengumpulan Tugas</h1>
+        <div class="header relative bg-(--body-background) p-4 w-max rounded-tl-xl rounded-tr-xl">
+            <h1 class="font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
             <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
         </div>
-        <div class="body-form bg-(--background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
+        <div class="body-form bg-(--body-background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
             <div class="input-container flex flex-col gap-1 w-100">
                 <div class="flex flex-col">
-                    <label for="nama" class="text-lg">Nama</label>
+                    <label for="nama" class="text-lg text-(--font-color) font-semibold">Nama</label>
                     <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
                 </div>
                 <div class="flex flex-col">
-                    <label for="nim" class="text-lg">NIM</label>
+                    <label for="nim" class="text-lg text-(--font-color) font-semibold">NIM</label>
                     <input class="bg-white text-lg p-1 rounded-sm" type="number" name="nim" id="nim">
                 </div>
                 <div class="flex flex-col">
-                    <label for="kelas" class="text-lg">Kelas</label>
+                    <label for="kelas" class="text-lg text-(--font-color) font-semibold">Kelas</label>
                     <select class="bg-white text-lg p-1 rounded-sm" name="kelas" id="kelas">
                         <option value="belum dipilih" selected disabled>Pilih kelas</option>
                         <option value="I251B">I251B</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label for="matkul" class="text-lg">Mata Kuliah</label>
+                    <label for="matkul" class="text-lg text-(--font-color) font-semibold">Mata Kuliah</label>
                     <select class="bg-white text-lg p-1 rounded-sm" name="matkul" id="matkul">
                         <option value="belum dipilih" selected disabled>Pilih Mata Kuliah</option>
                         <option value="Logika Matematika">Logika Matematika</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-lg" for="dosen">Dosen Pengampu</label>
+                    <label class="text-lg text-(--font-color) font-semibold" for="dosen">Dosen Pengampu</label>
                     <select class="bg-white text-lg p-1 rounded-sm" name="dosen" id="dosen">
                         <option value="belum dipilih" selected disabled>Pilih Dosen Pengampu</option>
                         <option value="Ir. U. Darmanto Soer, M.Kom.">Ir. U. Darmanto Soer, M.Kom.</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-lg" for="pertemuan">Pertemuan</label>
+                    <label class="text-lg text-(--font-color) font-semibold" for="pertemuan">Pertemuan</label>
                     <div class="flex justify-between gap-2">
                         <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
                             <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
                             <option value="pertemuan-1-7">Pertemuan 1 sampai 7</option>
                             <option value="pertemuan-9-15">Pertemuan 9 sampai 15</option>
                         </select>
-                        <button class="pertemuan-button bg-amber-200 w-full text-lg rounded-sm">Pilih</button>
+                        <button class="pertemuan-button bg-(--button-background) w-full text-lg rounded-sm cursor-pointer">Pilih</button>
                     </div>
                 </div>
             </div>
             <div class="divider bg-black w-2 rounded-4xl"></div>
             <div class="body-file flex flex-col gap-3 justify-between">
-                <div class="container-tugas bg-amber-950 w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
-                    <span class="text-white text-center">Untuk mengupload file, pilih dulu pertemuannya</span>
+                <div class="container-tugas bg-(--file-background) w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
+                    <span class="text-white text-xl text-center">Untuk mengupload file, pilih dulu pertemuannya</span>
                     <!-- <label class="bg-amber-200 w-full p-4 text-lg font-semibold cursor-pointer">
                         Upload tugas pertemuan 1
                         <input type="file" name="file" id="file">
                     </label> -->
                 </div>
-                <button class="merge-button bg-amber-200 w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Merge / Gabungkan semua file</button>
+                <button class="merge-button bg-(--button-background) w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Merge / Gabungkan semua file</button>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { getRange } from "./main";
+import { getRange, mergeButton } from "./main";
 let errmsg = []; //array untuk menyimpan pesan error
 let previewHasil = null;
 
@@ -153,39 +153,29 @@ export async function gabungPDF(coverBytes, uploadedFileBytes) {
   return await mergedPdf.save();
 }
 
-export function downloadPDF(data, filename, type) {
-  const blob = new Blob([data], { type });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
 export async function startMerge() {
+  mergeButton.innerText = "Loading ...";
   try {
-    const { start, end } = getRange();
+    const { start, end } = getRange(); //import nilai variabel start dan end dari file main.js
     //element input
     const inputNama = document.getElementById("nama").value;
     const inputNim = document.getElementById("nim").value;
     const inputKelas = document.getElementById("kelas").value;
     const inputMatkul = document.getElementById("matkul").value;
+    const inputPertemuan = document.getElementById("pertemuan").value;
     const inputDosen = document.getElementById("dosen").value;
 
     //kondisional kalo input ada yang  kosong, push pesan ke array errmsg
     if (inputNama === "") errmsg.push("Nama");
     if (inputNim === "") errmsg.push("NIM");
     if (inputKelas === "belum dipilih") errmsg.push("Kelas");
-    if (inputDosen === "belum dipilih") errmsg.push("Dosen");
     if (inputMatkul === "belum dipilih") errmsg.push("Mata Kuliah");
+    if (inputDosen === "belum dipilih") errmsg.push("Dosen");
+    if (inputPertemuan === "belum dipilih") errmsg.push("Pertemuan");
 
     //menampilkan pesan error yang ada di array errmsg
     if (errmsg.length > 0) {
+      mergeButton.innerText = "Merge / Gabungkan semua file";
       alert("Masih ada kolom yang belum di isi:\n- " + errmsg.join("\n- "));
       //hapus isi array errmsg setelah ditampilkan
       while (errmsg.length > 0) {
@@ -194,8 +184,8 @@ export async function startMerge() {
       return;
     }
 
+    //jika semua input terisi, lanjut ke proses merge
     const finalPDF = await PDFDocument.create();
-
     for (let i = start; i <= end; i++) {
       const buatCover = await buatHalamanCover(
         i,
@@ -218,7 +208,8 @@ export async function startMerge() {
         );
         halaman.forEach((halaman) => finalPDF.addPage(halaman));
       } else {
-        alert(`Upload file untuk pertemuan ${i} dulu!`);
+        alert(`Upload dulu semua filenya!`);
+        mergeButton.innerText = "Merge / Gabungkan semua file";
         return;
       }
     }
@@ -246,13 +237,22 @@ export async function startMerge() {
       bodyPreview.style.display = "flex";
     });
 
-    // const blob = new Blob([previewHasil], { type: "application/pdf" });
-    // const url = URL.createObjectURL(blob);
-    // const a = document.createElement("a");
-    // a.href = url;
-    // a.download = "File sudah digabung";
-    // a.click();
-    // URL.revokeObjectURL(url);
+    //menyimpan cache yang berisi hasil merge
+    const blob = new Blob([previewHasil], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    //fungsi untuk download hasil merge
+    document.addEventListener("eventDownloadPreview", () => {
+      a.href = url;
+      a.download = "PREVIEW HASIL MERGE";
+      a.click();
+    });
+
+    //fungsi untuk mengapus cache hasil merge jika tombol kembali ditekan
+    document.addEventListener("eventCloseBodyPreview", () => {
+      URL.revokeObjectURL(url);
+    });
   } catch (e) {
     console.log(e);
   }

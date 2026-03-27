@@ -72,8 +72,14 @@
 }
 
 :root{
-    --background: #ff7640;
+    --background: #2ec4b6;
+    --body-background: #cbf3f0;
+    --button-background: #80ed99;
+    --file-background: #38a3a5;
+    --upload-file: #c7f9cc;
+    --font-color: #22577a;
 }
+
 @theme inline{
     --default-font-family: 'Poppins'
 }
@@ -92,7 +98,7 @@ canvas{
     background: radial-gradient(
     circle at top right,
     transparent 20px,
-    var(--background) 20px
+    var(--body-background) 20px
     );
 }
 

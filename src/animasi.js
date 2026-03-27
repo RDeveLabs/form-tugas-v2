@@ -1,5 +1,5 @@
 import { animate, spring, stagger, splitText } from "animejs";
-import { getRange } from "./main";
+import { getRange, mergeButton } from "./main";
 
 document.querySelector(".pertemuan-button").addEventListener("click", () => {
   const { start, end } = getRange();
@@ -60,6 +60,7 @@ animate("div input, select, .pertemuan-button", {
 });
 
 document.addEventListener("eventOpenBodyPreview", () => {
+  mergeButton.innerText = "Merge / Gabungkan semua file";
   animate(".background-card", {
     opacity: [0, 0.8],
     duration: 500,

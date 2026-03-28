@@ -10,7 +10,7 @@ const containerTugas = document.querySelector(".container-tugas");
 
 //array untuk pertemuan
 const ranges = {
-  "pertemuan-1-7": [1, 1],
+  "pertemuan-1-7": [1, 7],
   "pertemuan-9-15": [9, 15],
 };
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Form Tugas</title>
+</head>
+<body class="bg-(--background)">
+    <div class="container-body flex flex-col">
+        <div class="header relative bg-(--body-background) p-4 w-max rounded-tl-xl rounded-tr-xl">
+            <h1 class="judul-desktop font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
+            <h1 class="judul-mobile font-bold text-(--font-color) text-[47px] leading-11">Form Tugas</h1>
+            <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
+        </div>
+        <div class="body-form bg-(--body-background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
+            <div class="input-container flex flex-col gap-1">
+                <div class="flex flex-col">
+                    <label for="nama" class="text-lg text-(--font-color) font-semibold">Nama</label>
+                    <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
+                </div>
+                <div class="flex flex-col">
+                    <label for="nim" class="text-lg text-(--font-color) font-semibold">NIM</label>
+                    <input class="bg-white text-lg p-1 rounded-sm" type="number" name="nim" id="nim">
+                </div>
+                <div class="flex flex-col">
+                    <label for="kelas" class="text-lg text-(--font-color) font-semibold">Kelas</label>
+                    <select class="bg-white text-lg p-1 rounded-sm" name="kelas" id="kelas">
+                        <option value="belum dipilih" selected disabled>Pilih kelas</option>
+                        <option value="I251B">I251B</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label for="matkul" class="text-lg text-(--font-color) font-semibold">Mata Kuliah</label>
+                    <select class="bg-white text-lg p-1 rounded-sm" name="matkul" id="matkul">
+                        <option value="belum dipilih" selected disabled>Pilih Mata Kuliah</option>
+                        <option value="Logika Matematika">Logika Matematika</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-lg text-(--font-color) font-semibold" for="dosen">Dosen Pengampu</label>
+                    <select class="bg-white text-lg p-1 rounded-sm" name="dosen" id="dosen">
+                        <option value="belum dipilih" selected disabled>Pilih Dosen Pengampu</option>
+                        <option value="Ir. U. Darmanto Soer, M.Kom.">Ir. U. Darmanto Soer, M.Kom.</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-lg text-(--font-color) font-semibold" for="pertemuan">Pertemuan</label>
+                    <div class="flex justify-between gap-2">
+                        <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
+                            <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
+                            <option value="pertemuan-1-7">Pertemuan 1 sampai 7</option>
+                            <option value="pertemuan-9-15">Pertemuan 9 sampai 15</option>
+                        </select>
+                        <button class="pertemuan-button bg-(--button-background) w-full text-lg rounded-sm cursor-pointer">Pilih</button>
+                    </div>
+                </div>
+            </div>
+            <div class="divider bg-(--font-color) rounded-4xl"></div>
+            <div class="body-file flex flex-col gap-3 justify-between">
+                <div class="container-tugas bg-(--file-background) w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
+                    <span class="text-white text-xl text-center">Untuk mengupload file, pilih dulu pertemuannya</span>
+                    <!-- <label class="bg-amber-200 w-full p-4 text-lg font-semibold cursor-pointer">
+                        Upload tugas pertemuan 1
+                        <input type="file" name="file" id="file">
+                    </label> -->
+                </div>
+                <button class="merge-button bg-(--button-background) w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Merge / Gabungkan semua file</button>
+            </div>
+        </div>
+    </div>
+    <div class="body-preview absolute justify-center items-center h-full w-full z-5">
+        <div class="background-card absolute bg-black h-full w-full"></div>
+        <div class="preview-card absolute flex flex-col justify-between z-10 bg-amber-50 w-200 h-205 rounded-lg">
+            <div class="border-b-2">
+                <h1 class="text-md p-2"><strong class="text-2xl">Preview Hasil</strong><br> scroll kebawah atau download preview untuk detail lebih lanjut.</h1>
+            </div>
+            <div id="pdf-container" class="flex flex-col items-center overflow-scroll">
+                <div id="loading">Memuat PDF...</div>
+            </div>
+            <div class="button-preview flex justify-between gap-2 p-2 bg-amber-100">
+                <button id="back-button" class="p-4 bg-amber-200 w-full cursor-pointer">Kembali</button>
+                <button id="download-preview" class="p-4 bg-amber-200 w-full cursor-pointer">Download Preview</button>
+                <button id="upload-button" class="p-4 bg-amber-200 w-full cursor-pointer">Compress & Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+    <script type="module" src="/src/notif.js"></script>
+    <script type="module" src="/src/animasi.js"></script>
+    <script type="module" src="/src/font-awesome.mjs"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

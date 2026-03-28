@@ -1,0 +1,44 @@
+{
+  "hash": "372d7a13",
+  "configHash": "5d677169",
+  "lockfileHash": "980ddbcf",
+  "browserHash": "e185874a",
+  "optimized": {
+    "@fortawesome/fontawesome-svg-core": {
+      "src": "../../node_modules/@fortawesome/fontawesome-svg-core/index.mjs",
+      "file": "@fortawesome_fontawesome-svg-core.js",
+      "fileHash": "e197a4f4",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "2e9e0a25",
+      "needsInterop": false
+    },
+    "animejs": {
+      "src": "../../node_modules/animejs/dist/modules/index.js",
+      "file": "animejs.js",
+      "fileHash": "0acc3b10",
+      "needsInterop": false
+    },
+    "izitoast": {
+      "src": "../../node_modules/izitoast/dist/js/iziToast.js",
+      "file": "izitoast.js",
+      "fileHash": "29cb90da",
+      "needsInterop": true
+    },
+    "pdf-lib": {
+      "src": "../../node_modules/pdf-lib/es/index.js",
+      "file": "pdf-lib.js",
+      "fileHash": "30b18d82",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-BoAXSpZd": {
+      "file": "chunk-BoAXSpZd.js",
+      "isDynamicEntry": false
+    }
+  }
+}

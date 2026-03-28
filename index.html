@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="/style/style.css">
     <title>Form Tugas</title>
 </head>
-<body class="bg-(--background) flex items-center justify-center h-screen w-screen">
-    <div class="flex flex-col">
+<body class="bg-(--background)">
+    <div class="container-body flex flex-col">
         <div class="header relative bg-(--body-background) p-4 w-max rounded-tl-xl rounded-tr-xl">
-            <h1 class="font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
+            <h1 class="judul-desktop font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
+            <h1 class="judul-mobile font-bold text-(--font-color) text-[47px] leading-11">Form Tugas</h1>
             <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
         </div>
         <div class="body-form bg-(--body-background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
-            <div class="input-container flex flex-col gap-1 w-100">
+            <div class="input-container flex flex-col gap-1">
                 <div class="flex flex-col">
                     <label for="nama" class="text-lg text-(--font-color) font-semibold">Nama</label>
                     <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
@@ -56,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="divider bg-black w-2 rounded-4xl"></div>
+            <div class="divider bg-(--font-color) rounded-4xl"></div>
             <div class="body-file flex flex-col gap-3 justify-between">
                 <div class="container-tugas bg-(--file-background) w-200 h-86 p-2 rounded-sm overflow-scroll flex flex-col gap-3">
                     <span class="text-white text-xl text-center">Untuk mengupload file, pilih dulu pertemuannya</span>
@@ -73,7 +74,7 @@
         <div class="background-card absolute bg-black h-full w-full"></div>
         <div class="preview-card absolute flex flex-col justify-between z-10 bg-amber-50 w-200 h-205 rounded-lg">
             <div class="border-b-2">
-                <h1 class="text-md p-2"><strong class="text-2xl">Preview Hasil</strong> scroll kebawah atau download preview untuk detail lebih lanjut.</h1>
+                <h1 class="text-md p-2"><strong class="text-2xl">Preview Hasil</strong><br> scroll kebawah atau download preview untuk detail lebih lanjut.</h1>
             </div>
             <div id="pdf-container" class="flex flex-col items-center overflow-scroll">
                 <div id="loading">Memuat PDF...</div>

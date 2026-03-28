@@ -2,6 +2,7 @@ import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { getRange, mergeButton } from "./main";
 let errmsg = []; //array untuk menyimpan pesan error
 let previewHasil = null;
+let skala = null;
 
 export async function buatHalamanCover(
   pertemuan,
@@ -216,6 +217,13 @@ export async function startMerge() {
 
     previewHasil = await finalPDF.save();
 
+    if (window.innerWidth >= 768){
+      skala = 1.3;
+    } else {
+      skala = .6;
+    }
+    console.log("sakala : " + skala);
+
     // previewHasil = Uint8Array dari pdf-lib
     pdfjsLib.getDocument({ data: previewHasil }).promise.then(async (pdf) => {
       const container = document.getElementById("pdf-container");
@@ -223,7 +231,7 @@ export async function startMerge() {
 
       for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 1.3 });
+        const viewport = page.getViewport({ scale: skala });
         const canvas = document.createElement("canvas");
         canvas.width = viewport.width;
         canvas.height = viewport.height;

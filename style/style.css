@@ -1,94 +1,108 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-Regular.ttf);
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-Italic.ttf);
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-Italic.ttf);
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-Medium.ttf);
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-Medium.ttf);
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-MediumItalic.ttf);
-    font-style: italic;
-    font-weight: 500;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-MediumItalic.ttf);
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-SemiBold.ttf);
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-SemiBold.ttf);
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-SemiBoldItalic.ttf);
-    font-style: italic;
-    font-weight: 600;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-SemiBoldItalic.ttf);
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-Bold.ttf);
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-Bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-BoldItalic.ttf);
-    font-style: italic;
-    font-weight: 700;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-BoldItalic.ttf);
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-ExtraBold.ttf);
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-ExtraBold.ttf);
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
 }
 @font-face {
-    font-family: Poppins;
-    src: url(/fonts/Poppins/Poppins-ExtraBoldItalic.ttf);
-    font-style: italic;
-    font-weight: 800;
-    font-display: swap;
+  font-family: Poppins;
+  src: url(/fonts/Poppins/Poppins-ExtraBoldItalic.ttf);
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
 }
 
-:root{
-    --background: #2ec4b6;
-    --body-background: #cbf3f0;
-    --button-background: #80ed99;
-    --file-background: #38a3a5;
-    --upload-file: #c7f9cc;
-    --font-color: #22577a;
+:root {
+  --background: #2ec4b6;
+  --body-background: #cbf3f0;
+  --button-background: #80ed99;
+  --file-background: #38a3a5;
+  --upload-file: #c7f9cc;
+  --font-color: #22577a;
 }
 
-@theme inline{
-    --default-font-family: 'Poppins'
+@theme inline {
+  --default-font-family: "Poppins";
 }
 
-canvas{
-    background: transparent;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100dvw;
 }
 
-.header::after{
+canvas {
+  background: transparent;
+}
+
+.body-preview {
+  display: none;
+}
+
+@media (width >= 1280px) {
+  .header::after {
     content: "";
     position: absolute;
     width: 20px;
@@ -96,12 +110,83 @@ canvas{
     bottom: 0;
     right: -20px;
     background: radial-gradient(
-    circle at top right,
-    transparent 20px,
-    var(--body-background) 20px
+      circle at top right,
+      transparent 20px,
+      var(--body-background) 20px
     );
+  }
+  .divider {
+    width: 8px;
+  }
+
+  .judul-mobile {
+    display: none;
+  }
 }
 
-.body-preview{
+@media (width <= 1280px) {
+  body {
+    background-color: var(--body-background);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: scroll;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+  }
+  .container-body {
+    width: 100%;
+    height: 100%;
+  }
+  .header {
+    width: auto;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    padding-top: 10px;
+    font-size: 47px;
+    line-height: 0.8;
+  }
+  .header p {
+    font-size: 20px;
+  }
+  .judul-desktop {
     display: none;
+  }
+  .body-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container-tugas {
+    width: 100%;
+  }
+  .divider {
+    border: 3px solid var(--font-color);
+  }
+  label {
+    font-size: 15px;
+  }
+  input,
+  select {
+    font-size: 16px;
+    padding: 2px;
+    box-sizing: border-box;
+  }
+
+  .preview-card {
+    width: 90%;
+    height: 88%;
+  }
+  .preview-card h1 {
+    font-size: 16px;
+  }
+  .preview-card button {
+    font-size: 15px;
+    padding: 2px;
+  }
 }

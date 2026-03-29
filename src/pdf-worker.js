@@ -271,7 +271,6 @@ export async function startMerge() {
           method: 'POST',
           headers: {
             'x-rdl' : "test",
-            'Content-Type': 'application/pdf'
           },
           body: formdata
         });

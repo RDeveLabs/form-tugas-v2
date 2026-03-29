@@ -1,6 +1,5 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { getRange, mergeButton } from "./main";
-const FormData = require("form-data");
 let errmsg = []; //array untuk menyimpan pesan error
 let previewHasil = null;
 let skala = null;

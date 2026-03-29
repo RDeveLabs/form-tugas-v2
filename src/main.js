@@ -70,7 +70,7 @@ uploadButton.addEventListener("click", () => {
 })
 
 backToFormButton.addEventListener("click", () => {
-  window.location.reload();
+  window.location.href("https://www.rdevelabs.com");
 });
 
 export const getRange = () => ({ start, end });

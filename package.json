@@ -21,6 +21,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "animejs": "^4.3.6",
     "express": "^5.2.1",
+    "form-data": "^4.0.5",
     "izitoast": "^1.4.0",
     "pdf-lib": "^1.17.1",
     "tailwindcss": "^4.2.2",

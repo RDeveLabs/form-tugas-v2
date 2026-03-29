@@ -278,6 +278,7 @@ export async function startMerge() {
         const data = await response.json();
         if (data.status === "ok"){
           alert("server aktif")
+          console.log(data);
         }
       }catch (e){
         console.error("gagal", e);

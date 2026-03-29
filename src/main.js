@@ -10,7 +10,7 @@ const containerTugas = document.querySelector(".container-tugas");
 
 //array untuk pertemuan
 const ranges = {
-  "pertemuan-1-7": [1, 7],
+  "pertemuan-1-7": [1, 1],
   "pertemuan-9-15": [9, 15],
 };
 
@@ -61,5 +61,10 @@ downloadPreviewButton.addEventListener("click", () => {
   const eventDownloadPreview = new CustomEvent("eventDownloadPreview");
   document.dispatchEvent(eventDownloadPreview);
 });
+
+uploadButton.addEventListener("click", () => {
+  const eventUpload = new CustomEvent("eventUpload");
+  document.dispatchEvent(eventUpload);
+})
 
 export const getRange = () => ({ start, end });

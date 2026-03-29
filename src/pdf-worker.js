@@ -221,8 +221,7 @@ export async function startMerge() {
       skala = 1.3;
     } else {
       skala = .6;
-    }
-    console.log("sakala : " + skala);
+    } 
 
     // previewHasil = Uint8Array dari pdf-lib
     pdfjsLib.getDocument({ data: previewHasil }).promise.then(async (pdf) => {
@@ -261,6 +260,22 @@ export async function startMerge() {
     document.addEventListener("eventCloseBodyPreview", () => {
       URL.revokeObjectURL(url);
     });
+
+    document.addEventListener("eventUpload", async () => {
+      try{
+        const response = await fetch('https://api.rdevelabs.com/data', {
+          method: 'POST',
+          headers: {
+            'x-rdl' : "test"
+          },
+          body: "halooo"
+        });
+      }catch (e){
+
+      }finally{
+
+      }
+    })
   } catch (e) {
     console.log(e);
   }

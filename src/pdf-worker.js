@@ -282,6 +282,8 @@ export async function startMerge() {
         }
         const data = await response.json();
         if (data.status === "ok"){
+          const completeCard = document.querySelector(".complete-card");
+          completeCard.style.display = "flex";
           const eventUploadDone = new CustomEvent("eventUploadDone");
           document.dispatchEvent(eventUploadDone);
         }

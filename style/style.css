@@ -102,6 +102,10 @@ canvas {
 }
 
 .loading{
+  display: flex;
+}
+
+.complete-card{
   display: none;
 }
 

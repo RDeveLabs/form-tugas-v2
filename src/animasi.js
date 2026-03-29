@@ -236,4 +236,10 @@ document.addEventListener("eventUploadDone", () => {
     ease: spring({ bounce: 0.3, duration: 700 }),
     opacity: [0, 1],
   });
+
+
+  setTimeout(() => {
+    const compressCard = document.querySelector(".compress-card");
+    compressCard.style.display = "none";
+  }, 800);
 })

@@ -270,10 +270,12 @@ export async function startMerge() {
         const response = await fetch('https://api.rdevelabs.com/data', {
           method: 'POST',
           headers: {
-            'x-rdl' : "test"
+            'x-rdl' : "test",
+            'Content-Type': 'application/pdf'
           },
           body: formdata
         });
+        console.log(formdata);
 
         if (!response.ok){
           const err = await response.json();

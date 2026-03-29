@@ -267,10 +267,10 @@ export async function startMerge() {
         const namaFile = `${inputNama}_${inputNim}_${inputKelas}_${inputMatkul}.pdf`;
         const formdata = new FormData();
         formdata.append("file", blob, namaFile);
-        const response = await fetch('https://api.rdevelabs.com/compress', {
+        const response = await fetch(import.meta.env.VITE_API_URL, {
           method: 'POST',
           headers: {
-            'x-rdl' : "ramdeveloper",
+            'x-rdl' : import.meta.env.VITE_API_TOKEN,
           },
           body: formdata
         });

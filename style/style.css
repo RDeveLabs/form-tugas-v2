@@ -102,11 +102,11 @@ canvas {
 }
 
 .loading{
-  display: none;
+  display: flex;
 }
 
 .complete-card{
-  display: none;
+  display: flex;
 }
 
 #scene {

@@ -102,7 +102,7 @@ canvas {
 }
 
 .loading{
-  display: flex;
+  display: none;
 }
 
 .complete-card{

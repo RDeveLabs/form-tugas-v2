@@ -101,6 +101,80 @@ canvas {
   display: none;
 }
 
+.loading{
+  display: none;
+}
+
+#scene {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#plate-top {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 18px;
+  background: #2c2c2a;
+  border-radius: 4px 4px 2px 2px;
+  z-index: 10;
+  top: 10px;
+}
+#plate-bot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 18px;
+  background: #2c2c2a;
+  border-radius: 2px 2px 4px 4px;
+  z-index: 10;
+  bottom: 10px;
+}
+#file-block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 120px;
+  background: #ff0000;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  overflow: visible;
+}
+.fline {
+  height: 4px;
+  background: rgba(8, 0, 0, 0.3);
+  border-radius: 4px;
+}
+#drips {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.loading-merge-text {
+  padding: 0 20px 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.loading-merge-text strong {
+  font-size: 18px;
+}
+
 @media (width >= 1280px) {
   .header::after {
     content: "";

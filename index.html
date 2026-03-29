@@ -86,10 +86,29 @@
             </div>
         </div>
     </div>
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-<script defer src="/<unique-path>/script.js"></script>
+    <div class="loading absolute justify-center items-center z-20 h-full w-full">
+        <div class="loading-background absolute bg-black h-full w-full"></div>
+        <div class="compress-card absolute flex flex-col items-center justify-between z-10 bg-amber-50 w-70 h-ma rounded-lg">
+            <div id="scene">
+                <div id="plate-top"></div>
+                <div id="plate-bot"></div>
+        
+                <div id="file-block">
+                    <div class="fline" style="width:55px;"></div>
+                    <div class="fline" style="width:65px;"></div>
+                    <div class="fline" style="width:75px;"></div>
+                    <div class="fline" style="width:55px;"></div>
+                    <div class="fline" style="width:70px;"></div>
+                </div>
+        
+                <div id="drips"></div>
+            </div>
+            
+            <p class="loading-merge-text"><strong>Mengompres File</strong><br>Tunggu sebentar ya, jangan tutup halaman ini.</p>
+        </div>
+    </div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
     <script type="module" src="/src/notif.js"></script>

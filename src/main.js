@@ -1,15 +1,13 @@
 import { startMerge } from "./pdf-worker.js";
 //element tombol
-const pertemuanButton = document.querySelector(".pertemuan-button");
+export const uploadButton = document.getElementById("upload-button");
 export const mergeButton = document.querySelector(".merge-button");
+const pertemuanButton = document.querySelector(".pertemuan-button");
 const backButton = document.getElementById("back-button");
 const downloadPreviewButton = document.getElementById("download-preview");
-const uploadButton = document.getElementById("upload-button");
-//container tugas
 const containerTugas = document.querySelector(".container-tugas");
 
-//array untuk pertemuan
-const ranges = {
+const rangePertemuan = {
   "pertemuan-1-7": [1, 1],
   "pertemuan-9-15": [9, 15],
 };
@@ -19,8 +17,8 @@ let end = null;
 
 pertemuanButton.addEventListener("click", () => {
   const inputPertemuan = document.getElementById("pertemuan").value;
-  if (inputPertemuan in ranges) {
-    [start, end] = ranges[inputPertemuan];
+  if (inputPertemuan in rangePertemuan) {
+    [start, end] = rangePertemuan[inputPertemuan];
     containerTugas.innerHTML = "";
 
     for (let i = start; i <= end; i++) {
@@ -63,6 +61,9 @@ downloadPreviewButton.addEventListener("click", () => {
 });
 
 uploadButton.addEventListener("click", () => {
+  uploadButton.innerText = "Loading...";
+  const loadingPage = document.querySelector(".loading");
+  loadingPage.style.display = "flex";
   const eventUpload = new CustomEvent("eventUpload");
   document.dispatchEvent(eventUpload);
 })

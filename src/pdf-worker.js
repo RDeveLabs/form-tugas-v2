@@ -270,7 +270,7 @@ export async function startMerge() {
         const response = await fetch('https://api.rdevelabs.com/data', {
           method: 'POST',
           headers: {
-            'x-rdl' : "test",
+            'x-rdl' : "p",
           },
           body: formdata
         });
@@ -282,8 +282,8 @@ export async function startMerge() {
         }
         const data = await response.json();
         if (data.status === "ok"){
-          alert("server aktif")
           console.log(data);
+          alert("server aktif")
         }
       }catch (e){
         console.error("gagal", e);

@@ -297,6 +297,7 @@ export async function startMerge() {
       }catch (e){
         const eventUploadExit = new CustomEvent("eventUploadExit");
         document.dispatchEvent(eventUploadExit);
+        alert(`Gagal upload file: ${e.message}`);
       }
     })
   } catch (e) {

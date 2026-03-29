@@ -270,7 +270,7 @@ export async function startMerge() {
         const response = await fetch('https://api.rdevelabs.com/compress', {
           method: 'POST',
           headers: {
-            'x-rdl' : "p",
+            'x-rdl' : "test",
           },
           body: formdata
         });

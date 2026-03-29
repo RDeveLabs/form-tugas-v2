@@ -202,7 +202,7 @@ document.addEventListener("eventUpload", () => {
   });
   loopCompress();
 });
-document.addEventListener("eventUploadError", () => {
+document.addEventListener("eventUploadExit", () => {
   animate(".loading-background", {
     opacity: [0.8, 0],
     duration: 500,
@@ -221,3 +221,19 @@ document.addEventListener("eventUploadError", () => {
     loading.style.display = "none";
   }, 800);
 });
+
+document.addEventListener("eventUploadDone", () => {
+  animate(".compress-card", {
+    translateY: [0, -1000],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [1, 0],
+  });
+
+  animate(".complete-card", {
+    translateY: [1000, 0],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [0, 1],
+  });
+})

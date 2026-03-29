@@ -5,6 +5,7 @@ export const mergeButton = document.querySelector(".merge-button");
 const pertemuanButton = document.querySelector(".pertemuan-button");
 const backButton = document.getElementById("back-button");
 const downloadPreviewButton = document.getElementById("download-preview");
+const backToFormButton = document.querySelector(".back-to-form");
 const containerTugas = document.querySelector(".container-tugas");
 
 const rangePertemuan = {
@@ -67,5 +68,9 @@ uploadButton.addEventListener("click", () => {
   const eventUpload = new CustomEvent("eventUpload");
   document.dispatchEvent(eventUpload);
 })
+
+backToFormButton.addEventListener("click", () => {
+  window.location.reload();
+});
 
 export const getRange = () => ({ start, end });

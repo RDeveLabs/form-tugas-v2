@@ -282,14 +282,12 @@ export async function startMerge() {
         }
         const data = await response.json();
         if (data.status === "ok"){
-          console.log(data);
-          alert("server aktif")
+          const eventUploadDone = new CustomEvent("eventUploadDone");
+          document.dispatchEvent(eventUploadDone);
         }
       }catch (e){
-        console.error("gagal", e);
-        alert(`ada kesalahan ${e.message}`)
-      }finally{
-
+        const eventUploadExit = new CustomEvent("eventUploadExit");
+        document.dispatchEvent(eventUploadExit);
       }
     })
   } catch (e) {

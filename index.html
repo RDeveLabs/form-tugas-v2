@@ -88,7 +88,7 @@
     </div>
     <div class="loading absolute justify-center items-center z-20 h-full w-full">
         <div class="loading-background absolute bg-black h-full w-full"></div>
-        <div class="compress-card absolute flex flex-col items-center justify-between z-10 bg-amber-50 w-70 h-ma rounded-lg">
+        <div class="compress-card hidden absolute flex-col items-center justify-between z-10 bg-amber-50 w-70 h-ma rounded-lg">
             <div id="scene">
                 <div id="plate-top"></div>
                 <div id="plate-bot"></div>
@@ -105,6 +105,47 @@
             </div>
             
             <p class="loading-merge-text"><strong>Mengompres File</strong><br>Tunggu sebentar ya, jangan tutup halaman ini.</p>
+        </div>
+        <div class="complete-card absolute flex flex-col items-center justify-between z-10 bg-amber-50 w-70 h-ma rounded-lg">
+            <div id="done-scene">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+
+                <!-- body file — di-center horizontal: x=(96-62)/2 = 17 -->
+                <rect x="17" y="4" width="62" height="78" rx="8" ry="8" fill="#534AB7"/>
+
+                <!-- folded corner -->
+                <path d="M59 4 L79 24 L59 24 Z" fill="white" opacity="0.2"/>
+                <path d="M59 4 L59 24 L79 24" fill="none" stroke="white" stroke-width="1" opacity="0.25"/>
+
+                <!-- garis isi -->
+                <rect x="27" y="34" width="36" height="5" rx="2.5" fill="white" opacity="0.35"/>
+                <rect x="27" y="46" width="28" height="5" rx="2.5" fill="white" opacity="0.25"/>
+                <rect x="27" y="58" width="32" height="5" rx="2.5" fill="white" opacity="0.30"/>
+
+                <!-- label PDF -->
+                <rect x="25" y="68" width="24" height="10" rx="3" fill="white" opacity="0.9"/>
+                <text x="37" y="76.5" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#534AB7" text-anchor="middle">PDF</text>
+
+                <!-- lingkaran checklist -->
+                <circle cx="73" cy="72" r="18" fill="white"/>
+                <circle cx="73" cy="72" r="16" fill="#1D9E75"/>
+
+                <!-- centang -->
+                <polyline
+                    points="64,72 71,80 83,62"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+                </svg>
+            </div>
+            
+            <p class="loading-merge-text"><strong>Berhasil</strong><br>File berhasil dikompres dan sudah terupload. <br><br>Sekarang Anda bisa keluar dari halaman ini atau kembali ke halaman form dengan menekan tombol di bawah ini.</p>
+            <button class="back-to-form bg-(--button-background) w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Kembali ke Form</button>
+
         </div>
     </div>
 

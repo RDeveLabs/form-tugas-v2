@@ -270,8 +270,18 @@ export async function startMerge() {
           },
           body: "halooo"
         });
-      }catch (e){
 
+        if (!response.ok){
+          const err = await response.json();
+          throw new Error(err.detail || "server error")
+        }
+        const data = await response.json();
+        if (data.status === "ok"){
+          alert("server aktif")
+        }
+      }catch (e){
+        console.error("gagal", e);
+        alert(`ada kesalahan ${e.message}`)
       }finally{
 
       }

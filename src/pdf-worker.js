@@ -274,7 +274,7 @@ export async function startMerge() {
           return;
         }
         
-        const response = await fetch(import.meta.env.VITE_API_URL, {
+        const response = await fetch("https://api.rdevelabs.com/compress", {
           method: 'POST',
           headers: {
             'x-rdl' : "ramdeveloper",

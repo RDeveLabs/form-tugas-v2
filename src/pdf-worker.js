@@ -277,7 +277,7 @@ export async function startMerge() {
         const response = await fetch(import.meta.env.VITE_API_URL, {
           method: 'POST',
           headers: {
-            'x-rdl' : token,
+            'x-rdl' : "ramdeveloper",
           },
           body: formdata
         });
@@ -297,7 +297,7 @@ export async function startMerge() {
       }catch (e){
         const eventUploadExit = new CustomEvent("eventUploadExit");
         document.dispatchEvent(eventUploadExit);
-        alert(`Gagal upload file: ${e.message}`);
+        alert(`Gagal upload file: ${e.message} || ${e}`);
       }
     })
   } catch (e) {

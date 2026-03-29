@@ -49,7 +49,6 @@ pertemuanButton.addEventListener("click", () => {
 
 mergeButton.addEventListener("click", async () => {
   startMerge();
-  console.log(import.meta.env.VITE_API_TOKEN) // cek nilainya apa
 });
 
 backButton.addEventListener("click", () => {

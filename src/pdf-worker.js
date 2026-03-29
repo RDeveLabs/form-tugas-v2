@@ -267,10 +267,17 @@ export async function startMerge() {
         const namaFile = `${inputNama}_${inputNim}_${inputKelas}_${inputMatkul}.pdf`;
         const formdata = new FormData();
         formdata.append("file", blob, namaFile);
+
+        const token = import.meta.env.VITE_API_TOKEN;
+        if (!token) {
+          console.error("API token tidak ditemukan!");
+          return;
+        }
+        
         const response = await fetch(import.meta.env.VITE_API_URL, {
           method: 'POST',
           headers: {
-            'x-rdl' : import.meta.env.VITE_API_TOKEN,
+            'x-rdl' : token,
           },
           body: formdata
         });

@@ -270,7 +270,7 @@ export async function startMerge() {
         const response = await fetch(import.meta.env.VITE_API_URL, {
           method: 'POST',
           headers: {
-            'x-rdl' : "ramdeveloper",
+            'x-rdl' : import.meta.env.VITE_API_TOKEN,
           },
           body: formdata
         });

@@ -1,5 +1,6 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { getRange, mergeButton } from "./main";
+const FormData = require("form-data");
 let errmsg = []; //array untuk menyimpan pesan error
 let previewHasil = null;
 let skala = null;
@@ -264,12 +265,15 @@ export async function startMerge() {
 
     document.addEventListener("eventUpload", async () => {
       try{
+        const namaFile = `${inputNama}_${inputNim}_${inputKelas}_${inputMatkul}.pdf`;
+        const formdata = new FormData();
+        formdata.append("file", blob, namaFile);
         const response = await fetch('https://api.rdevelabs.com/data', {
           method: 'POST',
           headers: {
             'x-rdl' : "test"
           },
-          body: "halooo"
+          body: formdata
         });
 
         if (!response.ok){

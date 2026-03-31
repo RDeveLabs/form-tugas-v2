@@ -1,4 +1,5 @@
-import { startMerge } from "./pdf-worker.js";
+import { checkInput } from "./functions.js";
+
 //element tombol
 export const uploadButton = document.getElementById("upload-button");
 export const mergeButton = document.querySelector(".merge-button");
@@ -18,6 +19,10 @@ let end = null;
 
 pertemuanButton.addEventListener("click", () => {
   const inputPertemuan = document.getElementById("pertemuan").value;
+  checkInput(
+    document.getElementById("pertemuan"),
+    document.querySelector(".pertemuan"),
+  );
   if (inputPertemuan in rangePertemuan) {
     [start, end] = rangePertemuan[inputPertemuan];
     containerTugas.innerHTML = "";
@@ -39,21 +44,20 @@ pertemuanButton.addEventListener("click", () => {
       input.onchange = function () {
         label.innerText = this.files[0]?.name ?? "Browse Files";
         label.style.background = "#80ed99";
-        label.style.color = "#22577a"
+        label.style.color = "#22577a";
       };
     }
-  } else {
-    alert("pilih pertemuan dulu");
   }
 });
 
-mergeButton.addEventListener("click", async () => {
-  startMerge();
+mergeButton.addEventListener("click", () => {
+  const eventStartMerge = new CustomEvent("eventStartMerge");
+  document.dispatchEvent(eventStartMerge);
 });
 
 backButton.addEventListener("click", () => {
-  const eventBodyPreview = new CustomEvent("eventCloseBodyPreview");
-  document.dispatchEvent(eventBodyPreview);
+  const eventCloseBodyPreview = new CustomEvent("eventCloseBodyPreview");
+  document.dispatchEvent(eventCloseBodyPreview);
 });
 
 downloadPreviewButton.addEventListener("click", () => {
@@ -67,7 +71,7 @@ uploadButton.addEventListener("click", () => {
   loadingPage.style.display = "flex";
   const eventUpload = new CustomEvent("eventUpload");
   document.dispatchEvent(eventUpload);
-})
+});
 
 backToFormButton.addEventListener("click", () => {
   window.location.replace("https://www.rdevelabs.com");

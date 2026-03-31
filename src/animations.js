@@ -1,26 +1,6 @@
 import { animate, spring, stagger, splitText } from "animejs";
 import { getRange, mergeButton } from "./main";
 
-document.querySelector(".pertemuan-button").addEventListener("click", () => {
-  const { start, end } = getRange();
-
-  // kumpulkan semua elemen dulu
-  const elements = [];
-  for (let i = start; i <= end; i++) {
-    const el = document.querySelector(`.upload-file${i}`);
-    if (el) elements.push(el);
-  }
-
-  // animate sekaligus sebagai group
-  animate(elements, {
-    translateX: [100, 0],
-    duration: 2000,
-    opacity: [0, 1],
-    ease: spring(),
-    delay: stagger(100),
-  });
-});
-
 const { chars: judul } = splitText("h1", {
   chars: true,
 });
@@ -57,6 +37,26 @@ animate("div input, select, .pertemuan-button", {
   opacity: [0, 1],
   ease: spring(),
   delay: stagger(100),
+});
+
+document.querySelector(".pertemuan-button").addEventListener("click", () => {
+  const { start, end } = getRange();
+
+  // kumpulkan semua elemen dulu
+  const elements = [];
+  for (let i = start; i <= end; i++) {
+    const el = document.querySelector(`.upload-file${i}`);
+    if (el) elements.push(el);
+  }
+
+  // animate sekaligus sebagai group
+  animate(elements, {
+    translateX: [100, 0],
+    duration: 2000,
+    opacity: [0, 1],
+    ease: spring(),
+    delay: stagger(100),
+  });
 });
 
 document.addEventListener("eventOpenBodyPreview", () => {
@@ -187,6 +187,7 @@ function loopCompress() {
     ease: "inOutQuart",
   });
 }
+
 document.addEventListener("eventUpload", () => {
   animate(".loading-background", {
     opacity: [0, 0.8],
@@ -202,6 +203,7 @@ document.addEventListener("eventUpload", () => {
   });
   loopCompress();
 });
+
 document.addEventListener("eventUploadExit", () => {
   animate(".loading-background", {
     opacity: [0.8, 0],
@@ -236,7 +238,6 @@ document.addEventListener("eventUploadDone", () => {
     ease: spring({ bounce: 0.3, duration: 700 }),
     opacity: [0, 1],
   });
-
 
   setTimeout(() => {
     const compressCard = document.querySelector(".compress-card");

@@ -97,6 +97,10 @@ canvas {
   background: transparent;
 }
 
+.input-border{
+  border: 1px solid red;
+}
+
 .body-preview {
   display: none;
 }

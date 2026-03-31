@@ -17,36 +17,54 @@
         <div class="body-form bg-(--body-background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
             <div class="input-container flex flex-col gap-1">
                 <div class="flex flex-col">
-                    <label for="nama" class="text-lg text-(--font-color) font-semibold">Nama</label>
-                    <input class="bg-white text-lg p-1 rounded-sm" type="text" name="nama" id="nama">
+                    <div class="flex justify-between items-center">
+                        <label for="nama" class="text-lg text-(--font-color) font-semibold">Nama</label>
+                        <span class="nama text-red-500 text-sm"></span>
+                    </div>
+                    <input class="bg-white text-lg p-1 box-border rounded-sm" type="text" name="nama" id="nama">
                 </div>
                 <div class="flex flex-col">
-                    <label for="nim" class="text-lg text-(--font-color) font-semibold">NIM</label>
+                    <div class="flex justify-between items-center">
+                        <label for="nim" class="text-lg text-(--font-color) font-semibold">NIM</label>
+                        <span class="nim text-red-500 text-sm"></span>
+                    </div>
                     <input class="bg-white text-lg p-1 rounded-sm" type="number" name="nim" id="nim">
                 </div>
                 <div class="flex flex-col">
-                    <label for="kelas" class="text-lg text-(--font-color) font-semibold">Kelas</label>
+                    <div class="flex justify-between items-center">
+                        <label for="kelas" class="text-lg text-(--font-color) font-semibold">Kelas</label>
+                        <span class="kelas text-red-500 text-sm"></span>
+                    </div>
                     <select class="bg-white text-lg p-1 rounded-sm" name="kelas" id="kelas">
                         <option value="belum dipilih" selected disabled>Pilih kelas</option>
                         <option value="I251B">I251B</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label for="matkul" class="text-lg text-(--font-color) font-semibold">Mata Kuliah</label>
+                    <div class="flex justify-between items-center">
+                        <label for="matkul" class="text-lg text-(--font-color) font-semibold">Mata Kuliah</label>
+                        <span class="matkul text-red-500 text-sm"></span>
+                    </div>
                     <select class="bg-white text-lg p-1 rounded-sm" name="matkul" id="matkul">
                         <option value="belum dipilih" selected disabled>Pilih Mata Kuliah</option>
                         <option value="Logika Matematika">Logika Matematika</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-lg text-(--font-color) font-semibold" for="dosen">Dosen Pengampu</label>
+                    <div class="flex justify-between items-center">
+                        <label class="text-lg text-(--font-color) font-semibold" for="dosen">Dosen Pengampu</label>
+                        <span class="dosen text-red-500 text-sm"></span>
+                    </div>
                     <select class="bg-white text-lg p-1 rounded-sm" name="dosen" id="dosen">
                         <option value="belum dipilih" selected disabled>Pilih Dosen Pengampu</option>
                         <option value="Ir. U. Darmanto Soer, M.Kom.">Ir. U. Darmanto Soer, M.Kom.</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-lg text-(--font-color) font-semibold" for="pertemuan">Pertemuan</label>
+                    <div class="flex justify-between items-center">
+                        <label class="text-lg text-(--font-color) font-semibold" for="pertemuan">Pertemuan</label>
+                        <span class="pertemuan text-red-500 text-sm"></span>
+                    </div>
                     <div class="flex justify-between gap-2">
                         <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
                             <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
@@ -149,12 +167,8 @@
         </div>
     </div>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
-    <script type="module" src="/src/notif.js"></script>
-    <script type="module" src="/src/animasi.js"></script>
-    <script type="module" src="/src/font-awesome.mjs"></script>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/index.js"></script>
 </body>
 </html>

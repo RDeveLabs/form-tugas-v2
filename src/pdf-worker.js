@@ -281,6 +281,8 @@ document.addEventListener("eventStartMerge", async () => {
             body: formdata,
           });
 
+          console.log(formdata);
+
           if (!response.ok) {
             const err = await response.json();
             throw new Error(err.detail || "server error");

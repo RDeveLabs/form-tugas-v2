@@ -8,11 +8,17 @@
     <title>Form Tugas</title>
 </head>
 <body class="bg-(--background)">
-    <div class="container-body flex flex-col">
-        <div class="header relative bg-(--body-background) p-4 w-max rounded-tl-xl rounded-tr-xl">
-            <h1 class="judul-desktop font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
-            <h1 class="judul-mobile font-bold text-(--font-color) text-[47px] leading-11">Form Tugas</h1>
-            <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
+    <div class="container-body flex flex-col ">
+        <div class="container-header flex justify-between items-center">
+            <div class="header relative bg-(--body-background) p-4 w-max rounded-tl-xl rounded-tr-xl">
+                <h1 class="judul-desktop font-bold text-(--font-color) text-[47px] leading-11">Form Pengumpulan Tugas</h1>
+                <h1 class="judul-mobile font-bold text-(--font-color) text-[47px] leading-11">Form Tugas</h1>
+                <p class="matakuliah font-medium text-[23px] leading-5">Logika Matematika</p>
+            </div>
+            <div class="tutorial bg-(--body-background) border-2 border-(--font-color)">
+                <p class="font-medium text-(--font-color)">Tutorial</p>
+                <i id="tutorial-icons" class="text-(--font-color)"></i>
+            </div>
         </div>
         <div class="body-form bg-(--body-background) p-4 flex h-full box-border gap-3 rounded-tr-xl rounded-br-xl rounded-bl-xl">
             <div class="input-container flex flex-col gap-1">
@@ -88,6 +94,9 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p><small>&copy; 2026 rdevelabs. All rights reserved.</small></p>
+    </footer>
     <div class="body-preview absolute justify-center items-center h-full w-full z-5">
         <div class="background-card absolute bg-black h-full w-full"></div>
         <div class="preview-card absolute flex flex-col justify-between z-10 bg-amber-50 w-200 h-205 rounded-lg">
@@ -163,6 +172,42 @@
             
             <p class="loading-merge-text"><strong>Berhasil</strong><br>File berhasil dikompres dan sudah terupload. <br><br>Sekarang Anda bisa keluar dari halaman ini atau kembali ke halaman form dengan menekan tombol di bawah ini.</p>
             <button class="back-to-form bg-(--button-background) w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Kembali ke Form</button>
+
+        </div>
+    </div>
+    <div class="tutorial-page absolute justify-center items-center z-20 h-full w-full">
+        <div class="tutorial-background absolute bg-black h-full w-full"></div>
+        <div class="tutorial-card absolute flex flex-col items-center justify-between p-2 z-10 bg-amber-50 w-[90%] h-max rounded-lg">
+            <h1 class="text-2xl font-bold">Tutorial</h1>
+            <div>
+                <table>
+                    <tr>
+                        <th>1.</th>
+                        <td>Masukkan Nama, NIM, Kelas, Mata Kuliah, Nama Dosen, dan Pertemuan.</td>
+                    </tr>
+                    <tr>
+                        <th>2.</th>
+                        <td>Setelah memilih pertemuan, tekan tombol "Pilih".</td>
+                    </tr>
+                    <tr>
+                        <th>3.</th>
+                        <td>Masukkan tugas pada masing-masing pertemuan.</td>
+                    </tr>
+                    <tr>
+                        <th>4.</th>
+                        <td>Kalau sudah diupload semua, tekan tombol "Merge / Gabungkan semua file".</td>
+                    </tr>
+                    <tr>
+                        <th>5.</th>
+                        <td>Setelah itu akan muncul tampilan preview. Jika resolusinya pecah, silakan download hasil previewnya.</td>
+                    </tr>
+                    <tr>
+                        <th>6.</th>
+                        <td>Jika sudah sesuai, tekan "Compress & Upload".</td>
+                    </tr>
+                </table>
+            </div>
+            <button class="close-tutorial bg-(--button-background) w-full p-2 rounded-sm text-lg font-medium cursor-pointer">Mengerti</button>
 
         </div>
     </div>

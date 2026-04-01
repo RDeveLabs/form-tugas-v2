@@ -7,6 +7,8 @@ const pertemuanButton = document.querySelector(".pertemuan-button");
 const backButton = document.getElementById("back-button");
 const downloadPreviewButton = document.getElementById("download-preview");
 const backToFormButton = document.querySelector(".back-to-form");
+const tutorialButton = document.querySelector(".tutorial");
+const closeTutorialButton = document.querySelector(".close-tutorial");
 const containerTugas = document.querySelector(".container-tugas");
 
 const rangePertemuan = {
@@ -77,4 +79,16 @@ backToFormButton.addEventListener("click", () => {
   window.location.replace("https://www.rdevelabs.com");
 });
 
+tutorialButton.addEventListener("click", () => {
+  const eventTutorialPage = new CustomEvent("eventTutorialPage");
+  document.dispatchEvent(eventTutorialPage);
+
+  const tutorialPage = document.querySelector(".tutorial-page");
+  tutorialPage.style.display = "flex";
+})
+
+closeTutorialButton.addEventListener("click", () => {
+  const eventCloseTutorialPage = new CustomEvent("eventCloseTutorialPage");
+  document.dispatchEvent(eventCloseTutorialPage);
+})
 export const getRange = () => ({ start, end });

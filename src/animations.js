@@ -1,14 +1,25 @@
 import { animate, spring, stagger, splitText } from "animejs";
 import { getRange, mergeButton } from "./main";
 
-const { chars: judul } = splitText("h1", {
+const { chars: judulDesktop } = splitText(".judul-desktop", {
+  chars: true,
+});
+const { chars: judulMobile } = splitText(".judul-mobile", {
   chars: true,
 });
 const { chars: matakuliah } = splitText(".matakuliah", {
   chars: true,
 });
 
-animate(judul, {
+animate(judulDesktop, {
+  y: [{ to: ["-100%", "0%"] }],
+  opacity: [0, 1],
+  duration: 500,
+  ease: spring({ bounce: 0.5, duration: 500 }),
+  delay: stagger(50),
+});
+
+animate(judulMobile, {
   y: [{ to: ["-100%", "0%"] }],
   opacity: [0, 1],
   duration: 500,
@@ -244,3 +255,37 @@ document.addEventListener("eventUploadDone", () => {
     compressCard.style.display = "none";
   }, 800);
 })
+
+document.addEventListener("eventTutorialPage", () => {
+  animate(".tutorial-background", {
+    opacity: [0, 0.8],
+    duration: 500,
+    ease: "inOut",
+  });
+
+  animate(".tutorial-card", {
+    translateY: [1000, 0],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [0, 1],
+  });
+});
+
+document.addEventListener("eventCloseTutorialPage", () => {
+  animate(".tutorial-background", {
+    opacity: [0.8, 0],
+    duration: 500,
+    ease: "inOut",
+  });
+
+  animate(".tutorial-card", {
+    translateY: [0, -1000],
+    duration: 1000,
+    ease: spring({ bounce: 0.3, duration: 700 }),
+    opacity: [1, 0],
+  });
+  setTimeout(() => {
+    const tutorialPage = document.querySelector(".tutorial-page");
+    tutorialPage.style.display = "none";
+  }, 800);
+});

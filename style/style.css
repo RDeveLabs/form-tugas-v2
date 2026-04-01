@@ -97,7 +97,7 @@ canvas {
   background: transparent;
 }
 
-.input-border{
+.input-border {
   border: 1px solid red;
 }
 
@@ -105,11 +105,15 @@ canvas {
   display: none;
 }
 
-.loading{
+.loading {
   display: none;
 }
 
-.complete-card{
+.complete-card {
+  display: none;
+}
+
+.tutorial-page{
   display: none;
 }
 
@@ -188,6 +192,15 @@ canvas {
   padding: 10px;
 }
 
+
+table th,
+table td {
+  vertical-align: top;
+  padding: 4px;
+  text-align: left;
+  text-align: justify;
+}
+
 @media (width >= 1280px) {
   .header::after {
     content: "";
@@ -208,6 +221,43 @@ canvas {
 
   .judul-mobile {
     display: none;
+  }
+
+  .tutorial p {
+    display: none;
+    padding: 0 5px;
+  }
+
+  .tutorial {
+    display: flex;
+    padding: 6px 8px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    border-radius: 32px;
+  }
+  .tutorial:hover p {
+    display: block;
+    animation: slideAnimation 0.5s ease forwards;
+  }
+
+  .tutorial-card{
+    width: max-content;
+  }
+
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
 
@@ -275,5 +325,23 @@ canvas {
   .preview-card button {
     font-size: 15px;
     padding: 2px;
+  }
+
+  .tutorial p {
+    padding: 0 5px;
+    font-size: 13px;
+  }
+  .tutorial i{
+    font-size: 17px;
+  }
+
+  .tutorial {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 2px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
   }
 }

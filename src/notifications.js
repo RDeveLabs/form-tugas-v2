@@ -1,4 +1,5 @@
 import iziToast from "izitoast";
+import { bullhornIcon, graduationCapIcon } from "./font-awesome.mjs";
 
 let position = null;
 
@@ -11,10 +12,14 @@ if (window.innerWidth >= 768) {
 iziToast.settings({
   position: position,
   drag: true,
+  layout: 2,
 });
 
 iziToast.show({
-  title: "Halo",
+  title: bullhornIcon.html[0] + " Selamat datang",
+  message:
+    "Silahkan ikuti petunjuk yang ada pada halaman tutorial dengan menekan tombol " +
+    graduationCapIcon.html[0],
 });
 
 export const showWarningToast = () => {
@@ -29,11 +34,11 @@ export const showSuccessToast = () => {
     title: "Sukses!",
     message: "File berhasil diupload",
   });
-}
+};
 
 export const showErrorToast = (message) => {
   iziToast.error({
     title: "Error!",
     message: message,
   });
-}
+};

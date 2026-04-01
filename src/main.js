@@ -12,7 +12,7 @@ const closeTutorialButton = document.querySelector(".close-tutorial");
 const containerTugas = document.querySelector(".container-tugas");
 
 const rangePertemuan = {
-  "pertemuan-1-7": [1, 1],
+  "pertemuan-1-7": [1, 7],
   "pertemuan-9-15": [9, 15],
 };
 

@@ -260,7 +260,7 @@ document.addEventListener("eventStartMerge", async () => {
       //Upload output file to server
       document.addEventListener("eventUpload", async () => {
         try {
-          const namaFile = `${inputNama}_${inputNim}_${inputKelas}_${inputMatkul}.pdf`;
+          const namaFile = `${inputNama.value}_${inputNim.value}_${inputKelas.value}_${inputMatkul.value}.pdf`;
           const formdata = new FormData();
           formdata.append("file", blob, namaFile);
 
@@ -280,8 +280,6 @@ document.addEventListener("eventStartMerge", async () => {
             },
             body: formdata,
           });
-
-          console.log(formdata);
 
           if (!response.ok) {
             const err = await response.json();

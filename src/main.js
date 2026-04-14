@@ -12,8 +12,8 @@ const closeTutorialButton = document.querySelector(".close-tutorial");
 const containerTugas = document.querySelector(".container-tugas");
 
 const rangePertemuan = {
-  "pertemuan-1-7": [1, 7],
-  "pertemuan-9-15": [9, 15],
+  "pertemuan-1-8": [1, 8],
+  "pertemuan-10-15": [10, 15],
 };
 
 let start = null;
@@ -91,4 +91,5 @@ closeTutorialButton.addEventListener("click", () => {
   const eventCloseTutorialPage = new CustomEvent("eventCloseTutorialPage");
   document.dispatchEvent(eventCloseTutorialPage);
 })
+
 export const getRange = () => ({ start, end });

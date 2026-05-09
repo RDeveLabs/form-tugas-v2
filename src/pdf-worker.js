@@ -262,6 +262,7 @@ document.addEventListener("eventStartMerge", async () => {
           const namaFile = `${inputNama.value}_${inputNim.value}_${inputKelas.value}_${inputMatkul.value}.pdf`;
           const formdata = new FormData();
           formdata.append("file", blob, namaFile, inputKelas.value);
+          formdata.append("informasi", inputNama.value, inputNim.value, inputKelas.value);
 
           const token = import.meta.env.VITE_API_TOKEN;
           if (!token) {

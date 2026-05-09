@@ -1,5 +1,6 @@
 import { animate, spring, stagger, splitText } from "animejs";
-import { getRange, mergeButton } from "./main";
+import { end, mergeButton, start } from "./main";
+
 
 const { chars: judulDesktop } = splitText(".judul-desktop", {
   chars: true,
@@ -51,7 +52,6 @@ animate("div input, select, .pertemuan-button", {
 });
 
 document.querySelector(".pertemuan-button").addEventListener("click", () => {
-  const { start, end } = getRange();
 
   // kumpulkan semua elemen dulu
   const elements = [];

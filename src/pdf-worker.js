@@ -5,7 +5,8 @@ import {
   inputKelas,
   inputMatkul,
   inputDosen,
-  inputPertemuan,
+  inputPertemuanAwal,
+  inputPertemuanAkhir,
 } from "./inputElements.js";
 import {
   errNama,
@@ -15,7 +16,7 @@ import {
   errDosen,
   errPertemuan,
 } from "./errSpans.js";
-import { getRange, mergeButton, uploadButton } from "./main.js";
+import { end, mergeButton, start, uploadButton } from "./main.js";
 import { checkErrMessage, checkInput, checkWindowWidth } from "./functions.js";
 import { showErrorToast, showSuccessToast } from "./notifications.js";
 
@@ -180,14 +181,12 @@ document.addEventListener("eventStartMerge", async () => {
     checkInput(inputKelas, errKelas);
     checkInput(inputMatkul, errMatkul);
     checkInput(inputDosen, errDosen);
-    checkInput(inputPertemuan, errPertemuan);
 
     const eventUploadExit = new CustomEvent("eventUploadExit");
 
     if (checkErrMessage()) {
       //proses merge pdf
       const finalPDF = await PDFDocument.create();
-      const { start, end } = getRange(); //dari main.js
       for (let i = start; i <= end; i++) {
         const buatCover = await buatHalamanCover(
           i,

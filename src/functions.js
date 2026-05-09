@@ -8,9 +8,11 @@ export function checkInput(elementInput, elementErr) {
     elementInput.classList.add("input-border");
     elementErr.innerHTML = "Masih kosong!";
     errmsg.push(elementErr.innerHTML);
+    return false
   } else {
     elementInput.classList.remove("input-border");
     elementErr.innerHTML = "";
+    return true
   }
 }
 

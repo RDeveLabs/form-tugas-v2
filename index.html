@@ -78,13 +78,48 @@
                         <label class="text-lg text-(--font-color) font-semibold" for="pertemuan">Pertemuan</label>
                         <span class="pertemuan text-red-500 text-sm"></span>
                     </div>
-                    <div class="flex justify-between gap-2">
-                        <select class="bg-white text-lg p-1 rounded-sm" name="pertemuan" id="pertemuan">
-                            <option value="belum dipilih" selected disabled>Pilih pertemuan</option>
-                            <option value="pertemuan-1-8">Pertemuan 1 sampai 8</option>
-                            <option value="pertemuan-10-15">Pertemuan 10 sampai 15</option>
+                    <div class="flex justify-between items-center gap-2">
+                        <p>Dari</p>
+                        <select class="bg-white text-lg p-1 rounded-sm" name="pertemuanAwal" id="pertemuanAwal">
+                            <option value="belum dipilih" selected disabled>Pilih</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
                         </select>
-                        <button class="pertemuan-button bg-(--button-background) w-full text-lg rounded-sm cursor-pointer">Pilih</button>
+                        <p>Sampai</p>
+                        <select class="bg-white text-lg p-1 rounded-sm" name="pertmuanAkhir" id="pertemuanAkhir">
+                            <option value="belum dipilih" selected disabled>Pilih</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                        </select>
+                        <button class="pertemuan-button bg-(--button-background) pl-1.5 pr-1.5 w-full text-lg rounded-sm cursor-pointer">Generate</button>
                     </div>
                 </div>
             </div>

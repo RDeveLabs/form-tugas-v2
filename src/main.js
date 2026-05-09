@@ -1,4 +1,5 @@
 import { checkInput } from "./functions.js";
+import { inputPertemuanAkhir, inputPertemuanAwal } from "./inputElements.js";
 
 //element tombol
 export const uploadButton = document.getElementById("upload-button");
@@ -10,25 +11,27 @@ const backToFormButton = document.querySelector(".back-to-form");
 const tutorialButton = document.querySelector(".tutorial");
 const closeTutorialButton = document.querySelector(".close-tutorial");
 const containerTugas = document.querySelector(".container-tugas");
+//element input
+const inputPertemuan = [inputPertemuanAwal, inputPertemuanAkhir];
 
-const rangePertemuan = {
-  "pertemuan-1-8": [1, 8],
-  "pertemuan-10-15": [10, 15],
-};
-
-let start = null;
-let end = null;
+export let start = null;
+export let end = null;
 
 pertemuanButton.addEventListener("click", () => {
-  const inputPertemuan = document.getElementById("pertemuan").value;
-  checkInput(
-    document.getElementById("pertemuan"),
-    document.querySelector(".pertemuan"),
-  );
-  if (inputPertemuan in rangePertemuan) {
-    [start, end] = rangePertemuan[inputPertemuan];
-    containerTugas.innerHTML = "";
+  start = inputPertemuanAwal.value;
+  end = inputPertemuanAkhir.value;
 
+  inputPertemuan.forEach(input => {
+    checkInput(
+      input,
+      document.querySelector(".pertemuan"),
+    );
+  });
+
+  containerTugas.innerHTML = "";
+
+  if (checkInput(inputPertemuanAwal, document.querySelector(".pertemuan")) &&
+  checkInput(inputPertemuanAkhir, document.querySelector(".pertemuan"))){
     for (let i = start; i <= end; i++) {
       containerTugas.innerHTML += `
       <div class="upload-file${i} bg-(--upload-file) border-box rounded-md flex items-center justify-center cursor-pointer hover:bg-amber-200">
@@ -37,12 +40,12 @@ pertemuanButton.addEventListener("click", () => {
       </div>
     `;
     }
-
+  
     for (let i = start; i <= end; i++) {
       const input = document.getElementById(`files${i}`);
       const label = document.querySelector(`label[for=files${i}]`);
       if (!input || !label) continue;
-
+  
       input.onchange = function () {
         label.innerText = this.files[0]?.name ?? "Browse Files";
         label.style.background = "#80ed99";
@@ -50,6 +53,7 @@ pertemuanButton.addEventListener("click", () => {
       };
     }
   }
+
 });
 
 mergeButton.addEventListener("click", () => {
@@ -91,5 +95,3 @@ closeTutorialButton.addEventListener("click", () => {
   const eventCloseTutorialPage = new CustomEvent("eventCloseTutorialPage");
   document.dispatchEvent(eventCloseTutorialPage);
 })
-
-export const getRange = () => ({ start, end });

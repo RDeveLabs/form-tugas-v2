@@ -80,7 +80,7 @@ uploadButton.addEventListener("click", () => {
 });
 
 backToFormButton.addEventListener("click", () => {
-  window.location.replace("https://www.rdevelabs.com");
+  window.location.replace("https://form.rdevelabs.com");
 });
 
 tutorialButton.addEventListener("click", () => {

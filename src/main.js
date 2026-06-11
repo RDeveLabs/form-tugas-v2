@@ -18,10 +18,12 @@ export let start = null;
 export let end = null;
 
 pertemuanButton.addEventListener("click", () => {
-  start = inputPertemuanAwal.value;
-  end = inputPertemuanAkhir.value;
+  start = Number(inputPertemuanAwal.value);
+  end = Number(inputPertemuanAkhir.value);
 
-  inputPertemuan.forEach(input => {
+  console.log(start, end);
+
+  inputPertemuan.forEach(input => { 
     checkInput(
       input,
       document.querySelector(".pertemuan"),

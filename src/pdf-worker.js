@@ -16,7 +16,7 @@ import {
   errDosen,
   errPertemuan,
 } from "./errSpans.js";
-import { end, mergeButton, start, uploadButton } from "./main.js";
+import { mergeButton, slot, uploadButton } from "./main.js";
 import { checkErrMessage, checkInput, checkWindowWidth } from "./functions.js";
 import { showErrorToast, showSuccessToast } from "./notifications.js";
 
@@ -187,7 +187,7 @@ document.addEventListener("eventStartMerge", async () => {
     if (checkErrMessage()) {
       //proses merge pdf
       const finalPDF = await PDFDocument.create();
-      for (let i = start; i <= end; i++) {
+      for (let i of slot) {
         const buatCover = await buatHalamanCover(
           i,
           inputNama.value,

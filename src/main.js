@@ -1,5 +1,6 @@
 import { checkInput } from "./functions.js";
 import { inputPertemuanAkhir, inputPertemuanAwal } from "./inputElements.js";
+import { showErrorToast } from "./notifications.js";
 
 //element tombol
 export const uploadButton = document.getElementById("upload-button");
@@ -16,6 +17,7 @@ const inputPertemuan = [inputPertemuanAwal, inputPertemuanAkhir];
 
 export let start = null;
 export let end = null;
+export let slot = [];
 
 pertemuanButton.addEventListener("click", () => {
   start = Number(inputPertemuanAwal.value);
@@ -23,31 +25,43 @@ pertemuanButton.addEventListener("click", () => {
 
   console.log(start, end);
 
-  inputPertemuan.forEach(input => { 
-    checkInput(
-      input,
-      document.querySelector(".pertemuan"),
-    );
+  inputPertemuan.forEach((input) => {
+    checkInput(input, document.querySelector(".pertemuan"));
   });
 
+  slot = [];
   containerTugas.innerHTML = "";
 
-  if (checkInput(inputPertemuanAwal, document.querySelector(".pertemuan")) &&
-  checkInput(inputPertemuanAkhir, document.querySelector(".pertemuan"))){
+  if (
+    checkInput(inputPertemuanAwal, document.querySelector(".pertemuan")) &&
+    checkInput(inputPertemuanAkhir, document.querySelector(".pertemuan"))
+  ) {
     for (let i = start; i <= end; i++) {
+      slot.push(i);
       containerTugas.innerHTML += `
-      <div class="upload-file${i} bg-(--upload-file) border-box rounded-md flex items-center justify-center cursor-pointer hover:bg-amber-200">
+      <div class="upload-file${i} bg-(--upload-file) border-box flex items-center justify-center cursor-pointer">
         <label for="files${i}" class="bg-(--upload-file) w-full p-4 text-lg font-semibold cursor-pointer">Upload file tugas pertemuan ${i}</label>
         <input required id="files${i}" type="file" accept=".pdf" hidden>
+        <div class="pr-2 pl-2">
+          <button class="hapus-slot hover:bg-(--upload-file-dark) p-3 rounded-sm" data-pertemuan="${i}">✕</button>
+        </div>
       </div>
     `;
     }
-  
+
+    containerTugas.addEventListener("click", (e) => {
+      if (e.target.classList.contains("hapus-slot")) {
+        const p = Number(e.target.dataset.pertemuan);
+        slot = slot.filter((x) => x !== p);
+        document.querySelector(`.upload-file${p}`).remove();
+      }
+    });
+
     for (let i = start; i <= end; i++) {
       const input = document.getElementById(`files${i}`);
       const label = document.querySelector(`label[for=files${i}]`);
       if (!input || !label) continue;
-  
+
       input.onchange = function () {
         label.innerText = this.files[0]?.name ?? "Browse Files";
         label.style.background = "#80ed99";
@@ -55,11 +69,14 @@ pertemuanButton.addEventListener("click", () => {
       };
     }
   }
-
 });
 
 mergeButton.addEventListener("click", () => {
   const eventStartMerge = new CustomEvent("eventStartMerge");
+  if (slot.length === 0) {
+    showErrorToast("Tidak ada pertemuan yang dipilih!");
+    return;
+  }
   document.dispatchEvent(eventStartMerge);
 });
 
@@ -91,9 +108,9 @@ tutorialButton.addEventListener("click", () => {
 
   const tutorialPage = document.querySelector(".tutorial-page");
   tutorialPage.style.display = "flex";
-})
+});
 
 closeTutorialButton.addEventListener("click", () => {
   const eventCloseTutorialPage = new CustomEvent("eventCloseTutorialPage");
   document.dispatchEvent(eventCloseTutorialPage);
-})
+});

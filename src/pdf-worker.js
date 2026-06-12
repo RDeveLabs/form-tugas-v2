@@ -265,8 +265,7 @@ document.addEventListener("eventStartMerge", async () => {
           formdata.append("nama", inputNama.value);
           formdata.append("nim", inputNim.value);
           formdata.append("kelas", inputKelas.value);
-          formdata.append("dariPertemuan", start);
-          formdata.append("sampaiPertemuan", end);
+          formdata.append("pertemuan", slot);
 
           const token = import.meta.env.VITE_API_TOKEN;
           if (!token) {

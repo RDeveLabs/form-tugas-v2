@@ -299,7 +299,7 @@ document.addEventListener("eventStartMerge", async () => {
         } catch (e) {
           document.dispatchEvent(eventUploadExit);
           uploadButton.innerText = "Compress & Upload";
-          showErrorToast(`Gagal upload file: ${e.message}`);
+          showErrorToast(`Error: ${e.message}`);
         }
       });
     }

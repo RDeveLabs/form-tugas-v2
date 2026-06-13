@@ -22,6 +22,11 @@ import { showErrorToast, showSuccessToast } from "./notifications.js";
 
 let previewHasil = null;
 
+const kelasMap = {
+  "1": "I251A",
+  "2": "I251B",
+};
+
 export async function buatHalamanCover(
   pertemuan,
   nama,
@@ -192,7 +197,7 @@ document.addEventListener("eventStartMerge", async () => {
           i,
           inputNama.value,
           inputNim.value,
-          inputKelas.value,
+          inputKelas.value in kelasMap ? kelasMap[inputKelas.value] : inputKelas.value,
           inputDosen.value,
           inputMatkul.value,
         );
@@ -258,24 +263,19 @@ document.addEventListener("eventStartMerge", async () => {
 
       //Upload output file to server
       document.addEventListener("eventUpload", async () => {
-        uploadButton.disabled = true;
-        uploadButton.innerText = "Mengunggah...";
-
         try {
-          const namaFile = `${inputNama.value}_${inputNim.value}_${inputKelas.value}_${inputMatkul.value}.pdf`;
+          const namaFile = `${inputNama.value}_${inputNim.value}_${kelasMap[inputKelas.value] || inputKelas.value}_${inputMatkul.value}.pdf`;
           const formdata = new FormData();
           formdata.append("file", blob, namaFile);
           formdata.append("nama", inputNama.value);
           formdata.append("nim", inputNim.value);
-          formdata.append("kelas", inputKelas.value);
+          formdata.append("kelas", kelasMap[inputKelas.value] || inputKelas.value);
           formdata.append("pertemuan", slot);
 
           const token = import.meta.env.VITE_API_TOKEN;
           if (!token) {
             console.error("API token tidak ditemukan!");
             showErrorToast("API token tidak ditemukan, hubungi developer");
-
-            uploadButton.disabled = false;
             uploadButton.innerText = "Compress & Upload";
             document.dispatchEvent(eventUploadExit);
             return;
@@ -291,11 +291,9 @@ document.addEventListener("eventStartMerge", async () => {
 
           if (!response.ok) {
             const err = await response.json();
-            throw new Error(err.error || "server error");
+            throw new Error(err.detail || "server error");
           }
-
           const data = await response.json();
-
           if (data.status === "ok") {
             const completeCard = document.querySelector(".complete-card");
             completeCard.style.display = "flex";
@@ -305,16 +303,8 @@ document.addEventListener("eventStartMerge", async () => {
           }
         } catch (e) {
           document.dispatchEvent(eventUploadExit);
-          uploadButton.disabled = false;
           uploadButton.innerText = "Compress & Upload";
-
-          if (e.message === "duplikat") {
-            showErrorToast(
-              "File sudah terkirim, anda hanya bisa mengirim sekali saja!",
-            );
-          } else {
-            showErrorToast(`Error: ${e.message}`);
-          }
+          showErrorToast(`Gagal upload file: ${e.message}`);
         }
       });
     }

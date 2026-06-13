@@ -269,7 +269,7 @@ document.addEventListener("eventStartMerge", async () => {
           formdata.append("file", blob, namaFile);
           formdata.append("nama", inputNama.value);
           formdata.append("nim", inputNim.value);
-          formdata.append("kelas", kelasMap[inputKelas.value] || inputKelas.value);
+          formdata.append("kelas", inputKelas.value);
           formdata.append("pertemuan", slot);
 
           const token = import.meta.env.VITE_API_TOKEN;
